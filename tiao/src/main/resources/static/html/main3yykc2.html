@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta http-equiv="content-type" content="text/html; charset=UTF-8"/>
+    <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link rel="stylesheet" type="text/css" href="style.css"/>
+<style>
+    body {  padding-top: 90px; padding-bottom: 90px;background-color: #F9F9F9}
+    a:link,a:visited{color: white;;text-decoration:none}
+    h:hover{ }
+</style>
+</head>
+<body>
+<!--navbar指定此nav为导航栏，navbar-inverse指定导航的样式，navbar-fixed-top指定导航栏的位置-->
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000000 ">
+<!--    <a  class="navbar-brand " href="sf1" style="float:right;margin-right: 30px;">登陆</a>-->
+    <a  class="navbar-brand " href="main3" style="position:absolute;z-index:999;margin-left: 22px;margin-top: 22px;font-size: 16px;color: white"><span style="color:#E8BD5F;">&lt;</span>&nbsp;返回预约课程</a>
+    <!--container 导航栏容器-->
+    <div class="container text-center" >
+        <div class="collapse navbar-collapse " id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-top: 20px;margin-bottom: 22px;"/>
+        </div>
+    </div>
+</nav>
+<div class="text-center" style="margin-top: 80px;">
+    <div>
+    <img style="margin-top: 38px;width: 80px;height: 80px" src="../img/main.png">
+    </div>
+    <div>
+    <h4 style="text-decoration: none;color: black">预约课程</h4>
+    </div>
+    <div>
+        <img style="margin-top: 28px;width: 480px;height: 80px" src="../img/h22.PNG">
+    </div>
+    <div>
+    <h5 style="margin-top: 40px;">演奏曲目及曲谱</h5>
+        <div class="form-inline row" >
+            <input  id="song" type="text" placeholder="演奏曲目" class="form-control"  style="margin-left:auto;margin-right: auto;float:none;width: 300px;">
+<!--            <h4>您所选择的文件列表：</h4>-->
+            <div id="ossfile">你的浏览器不支持flash,Silverlight或者HTML5！</div>
+
+            <br/>
+
+            <div id="container">
+                <label class="form-control" id="file" style="width: 300px"></label>
+                <br/>
+                <a id="selectfiles"  href="javascript:void(0);" class='btn'>选择文件</a>
+                <a id="postfiles" href="javascript:void(0);" class='btn'>开始上传</a>
+            </div>
+
+<!--            <pre id="console"></pre>-->
+
+<!--            <p>&nbsp;</p>-->
+        </div>
+        <div >
+
+        </div>
+<!--        <input  type="file" placeholder="演奏曲谱" class="form-control"  style="margin-left:auto;margin-right: auto;float:none;width: 300px;margin-top: 22px;">-->
+        <div>
+            <h5 style="margin-top: 40px;">琴童1</h5>
+            <input  id="yu0" type="text" placeholder="琴童姓名" class="form-control"  style="margin-left:auto;margin-right: auto;float:none;width: 300px;margin-top: 22px;">
+            <img id="add7" src="../img/jiahao.png" style="width: 30px;height: 30px">
+        </div>
+        <div id="child">
+
+        </div>
+    </div>
+
+    <div>
+        <img id="up" class="img-circle" src="../img/up.PNG" style="margin-top:80px;width: 50px;height: 50px">
+        <img id="down" class="img-circle" src="../img/down.PNG" style="margin-top:80px;width: 50px;height: 50px">
+    </div>
+</div>
+<script>
+    var yu=0;
+    var nummer="";
+    var j={}
+    $('#up').click(function () {
+        window.location.href="main3yykc"
+    })
+    $('#down').click(function () {
+        for(var i=0;i<yu+1;i++){
+            var k=document.getElementById("yu"+i+"").value;
+            nummer=nummer+k
+            if (i!=yu){
+                nummer=nummer+",";
+            }
+        }
+        j.spectium=document.getElementById("file").innerHTML;
+        j.song=document.getElementById('song').value;
+        j.sname=nummer;
+        if(j.spectium!=''&&j.song!=''&&j.sname!=""){
+        localStorage.setItem("part2",JSON.stringify(j));
+        window.location.href="main3yykc3"}
+        else {
+            alert("请填写完整");
+        }
+    })
+
+    $('#add7').click(function () {
+      yu++;
+        // var p1=documen
+     var  in1=document.createElement('input');
+     in1.type="text";
+     in1.placeholder="琴童姓名";
+     in1.className="form-control";
+     in1.style.margin="auto auto auto auto";
+     in1.style.float="none";
+     in1.style.width="300px";
+     in1.style.marginTop="22px";
+     in1.id="yu"+yu;
+     document.getElementById('child').appendChild(in1);
+    })
+
+//     for(var i=0;i<yu;i++){
+//    var k=document.getElementById("i"+i).innerHTML;
+//     nummer=nummer+k+",";
+// }
+
+</script>
+
+
+</body>
+<script type="text/javascript" src="lib/crypto1/crypto/crypto.js"></script>
+<script type="text/javascript" src="lib/crypto1/hmac/hmac.js"></script>
+<script type="text/javascript" src="lib/crypto1/sha1/sha1.js"></script>
+<script type="text/javascript" src="lib/base64.js"></script>
+<script type="text/javascript" src="lib/plupload-2.1.2/js/plupload.full.min.js"></script>
+<script type="text/javascript" src="upload.js"></script>
+</html>

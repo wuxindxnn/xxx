@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../css/abouta.css"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color:#F9F9F9;}
+        .lie{
+                 border:none;
+                 font-size: medium;
+                 margin-top: 8px;
+                 width: 100%;
+            background-color: white;
+             }
+       a,a:hover a:link,a:visited{color:black;text-decoration:none}
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+        <!--        <div class="collapse navbar-collapse " >-->
+        <!--            <p style="color: white">返回我的导师</p>-->
+        <!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-top: 20px;margin-bottom: 22px;"/>
+        </div>
+    </div>
+</nav>
+<div  style="width: 80%;margin-left:15%;margin-right: 15%;float: none">
+    <div style="width:200px;float: left">
+        <div style="background-color: #FFF7EA;height: 300px;margin-top: 80px;width:100%;" class="text-center">
+            <img src="../img/main.png" class="img-circle" style="width: 100px;height: 100px;margin-top: 80px">
+            <br>
+            <h4><b>塞尔金钢琴学院</b></h4>
+            <button type="button" class="btn btn-warning" style="width:125px;margin-top: 12px;">修改机构信息</button><br>
+        </div>
+        <div style="background-color: white;border:solid white 1px; height: 300px;width:100%;" class="text-center">
+            <button class="lie" style="margin-top: 18px;"><img src="../img/a.png" width="30px"/><a href="main1" >课程进度</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/q1.png" width="20px;" style="margin-right: 10px;"/><a href="main2" style="color: #E8BD5F">课程管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/w.png" width="20px" style="margin-right: 10px;"/><a href="main3">预约课程</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/e.png" width="20px" style="margin-right: 10px;"/><a href="main4">导师管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/r.png" width="20px" style="margin-right: 10px;"/><a href="main5">琴童管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/t.png" width="20px" style="margin-right: 10px;"/><a href="main6">老师进度</a></button>
+        </div>
+    </div>
+    <div style="background-color: white;margin-top: 80px;height: 140px;width:68%;float:left;margin-left: 20px" class="">
+        <div style="height: 165px;background-color: #999999"></div>
+
+        <div>
+            <p style="text-align: left;margin-top: 35px;"><a href="main2">未反馈课程</a>>详情</p>
+            <div  class="text-center" style="align:right;border-top: solid #E8BD5F 2px;background-color: white">
+                <h5 style="margin-top: 22px;line-height: 26px;color: #999999">学生：<a id="wxm"></a></h5>
+                <h5 style="line-height: 26px;color: #999999">导师：<a id="wds"></a></h5>
+                <h5 style="line-height: 26px;color: #999999">课程上传时间：<a id="wkcsc"></a></h5>
+                <h5 style="line-height: 26px;color: #999999">课程次数：<a id="wkccs"></a></h5>
+                <img id="down" src="../img/main.png" style="width: 200px;height: 180px">
+                <h5 class="text-left" style="margin-left: 200px;color: #999999">留言：<a id="liuy"></a></h5>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    // alert(location.search);
+    var aa=location.search;
+    var i=aa.substr(5,2);
+    var op1=localStorage.getItem("op");
+    var op=JSON.parse(op1);
+    console.log("xxxxxxxx")
+    console.log(localStorage.getItem("op"))
+    // alert(i)
+    document.getElementById('wxm').innerHTML=op[i].sname;
+    document.getElementById('wds').innerHTML=op[i].aname;
+    document.getElementById('wkcsc').innerHTML=op[i].uploaddatetime;
+    document.getElementById('wkccs').innerHTML=op[i].classtime;
+    document.getElementById('down').click(function () {
+        window.open(op[i].uploadpath);
+    })
+    if(op[i].umessage===undefined)
+    {
+        document.getElementById('liuy').innerHTML="无";
+    } else {
+        document.getElementById('liuy').innerHTML=op[i].umessage;
+    }
+
+</script>
+</body>
+</html>

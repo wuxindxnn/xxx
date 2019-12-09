@@ -1,0 +1,138 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../css/abouta.css"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color:#F9F9F9}
+        .lie{
+            border:none;
+            font-size: medium;
+            margin-top: 8px;
+            width: 100%;
+            background-color: white;
+        }
+        a:link,a:visited{color:black;text-decoration:none}
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+        <!--        <div class="collapse navbar-collapse " >-->
+        <!--            <p style="color: white">返回我的导师</p>-->
+        <!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="margin-left: auto;margin-right: auto;float: none;"/>
+        </div>
+    </div>
+</nav>
+<div  style="width: 80%;margin-left:15%;margin-right: 15%;float: none">
+    <div style="width:200px;float: left">
+        <div style="background-color:  #FFF7EA;height: 300px;width:100%;" class="text-center">
+            <img src="../img/main.png" class="img-circle" style="width: 100px;height: 100px;margin-top: 80px">
+            <br><br>
+            <h4><b>塞尔金钢琴学院</b></h4>
+            <button type="button" class="btn btn-warning">修改机构信息</button><br>
+        </div>
+        <div style="background-color: white;border:solid white 1px; height: 300px;width:100%;" class="text-center">
+            <button class="lie" style="margin-top: 18px;"><img src="../img/a.png" width="30px"/><a href="main1" >课程进度</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/q.png" width="20px;" style="margin-right: 10px;"/><a href="main2" >课程管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/w.png" width="20px" style="margin-right: 10px;"/><a href="main3">预约课程</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/e.png" width="20px" style="margin-right: 10px;"/><a href="main4">导师管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/r.png" width="20px" style="margin-right: 10px;"/><a href="main5">琴童管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/t1.png" width="20px" style="margin-right: 10px;"/><a href="main6"style="color: #E8BD5F">老师进度</a></button>
+        </div>
+    </div>
+    <div style="background-color: white;height: 180px;width:68%;float:left;margin-left: 20px" class="text-center">
+        <div style="height: 180px;background-color: #999999"></div>
+        <br><br>
+<!--        <div class="text-right">            <button type="button" class="btn btn-warning text-left" >预约课程</button><br>-->
+<!--        </div>-->
+        <div>
+            <p style="text-align: left;margin-top: 10px;">我的老师>添加老师</p>
+            <div style="margin-top: 13px;">
+                <p style="text-align: left"></p>
+                <div style="border-top: solid #E8BD5F 2px;background-color: white;" class="text-center">
+                    <div style="width:60%;margin-top: 20px;margin-left: 20%;margin-right: 20%" >
+                        <h4 class="text-left" for="lname" style="" >老师姓名：</h4>
+                        <div>
+                            <input id="lname" type="text" class="form-control"  ></div>
+                    </div>
+                    <div style="width:30%;margin-top: 20px;margin-left: 20%;margin-right: 20%" >
+                        <h4 class="text-left" >老师性别：</h4>
+                        <select id="sex" class="form-control text-center"  style="background-color: white;">
+                            <option>男</option>
+                            <option>女</option>
+                        </select>
+                    </div>
+                    <div style="width:60%;margin-top: 20px;margin-left: 20%;margin-right: 20%" >
+                        <h4 class="text-left"   id="yqm" style="z-index: -1">邀请码：</h4>
+                        <button class="btn btn-warning text-center" onclick="em()" style="text-align:center;font-size:5px;position: absolute;z-index: 9;width: 60px;height: 22px;margin-top: 6px;padding-bottom:2px;margin-left: 8%;">生成</button>
+                        <div>
+                            <input id="em" type="text" class="form-control"  >
+                        </div>
+                    </div>
+                    <div style="margin-bottom: 100px;">
+                        <button type="button" id="add" class="btn btn-warning text-left" style="margin-bottom: 80px;margin-top: 22px;">添加老师</button>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+<script>
+    var count=3000;
+    window.opi=0;
+    var originalArray=new Array;//原数组
+    //给原数组originalArray赋值
+    for (var i=0;i<count;i++){
+        originalArray[i]=i+1;
+        originalArray[i]=i;
+    }
+    var d1=new Date().getTime();
+    originalArray.sort(function(){ return 0.5 - Math.random(); });
+    for (var i=0;i<count;i++){
+        // document.write(originalArray[i]+" , ");
+    }
+    localStorage.setItem('em',originalArray);
+    // alert(originalArray[8]);
+    var name=document.getElementById('lname').value;
+    function em() {
+      var aa= localStorage.getItem('em');
+      var b=JSON.stringify(aa);
+      document.getElementById('em').value="hgjhds"+originalArray[opi++];
+    }
+
+    $('#add').click(function () {
+    var j={};
+       j.iname=document.getElementById('lname').value;
+       j.em=document.getElementById('em').value;
+       j.sex=document.getElementById('sex').onselect;
+     var da=JSON.stringfy(j);
+alert(da);
+        $.ajax({
+            type: "POST",
+            url: "///",
+            data:da,
+            dataType: "json",
+            contentType:"application/json; charset=UTF-8",
+            success: function(data){
+                if(data==="t"){alert("ok");}
+else alert("服务器异常");
+            }})
+
+    })
+
+</script>
+</body>
+</html>

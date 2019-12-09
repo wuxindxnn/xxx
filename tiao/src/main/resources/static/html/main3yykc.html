@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+
+    <style>
+    body {  padding-top: 90px; padding-bottom: 90px;background-color: #F9F9F9}
+    a:link,a:visited{color: white;;text-decoration:none}
+    a:hover{ color: white}
+        a{color: white}
+</style>
+</head>
+<body>
+<!--navbar指定此nav为导航栏，navbar-inverse指定导航的样式，navbar-fixed-top指定导航栏的位置-->
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000000 ">
+<!--    <a  class="navbar-brand " href="sf1" style="float:right;margin-right: 30px;">登陆</a>-->
+    <a  class="navbar-brand " href="main3" style="position:absolute;z-index:999;margin-left: 22px;margin-top: 22px;font-size: 16px;color: white"><span style="color:#E8BD5F;">&lt;</span>&nbsp;返回预约课程</a>
+    <!--container 导航栏容器-->
+    <div class="container text-center" >
+        <div class="collapse navbar-collapse " id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-top: 20px;margin-bottom: 22px;"/>
+        </div>
+    </div>
+</nav>
+<div class="text-center" style="margin-top: 80px;">
+    <div>
+        <img style="margin-top: 38px;width: 80px;height: 80px" src="../img/main.png">
+    </div>
+    <div>
+        <h4 style="text-decoration: none;color: black"><b>预约课程</b></h4>
+    </div>
+    <div>
+        <img style="margin-top: 28px;width: 480px;height: 80px" src="../img/h11.PNG">
+    </div>
+    <div id="mg"> </div>
+<!--        <img class="img-circle h" style="margin-left: 22px;margin-top: 28px;width: 80px;height: 80px" src="../img/main.png"-->
+<!--             onMouseOver="this.src='../img/h1.png'" onMouseOut="this.src='../img/main.png'">-->
+<!--        <img class="img-circle h" style="margin-left: 22px;margin-top: 28px;width: 80px;height: 80px" src="../img/main.png"-->
+<!--             onMouseOver="this.src='../img/h1.png'" onMouseOut="this.src='../img/main.png'">-->
+<!--        <img class="img-circle h" style="margin-left: 22px;margin-top: 28px;width: 80px;height: 80px" src="../img/main.png"-->
+<!--             onMouseOver="this.src='../img/h1.png'" onMouseOut="this.src='../img/main.png'">-->
+<!--        <img class="img-circle h" style="margin-left: 22px;margin-top: 28px;width: 80px;height: 80px" src="../img/main.png"-->
+<!--             onMouseOver="this.src='../img/h1.png'" onMouseOut="this.src='../img/main.png'">-->
+
+
+
+    <div>
+        <img  id="down" class="img-circle" src="../img/down.PNG" style="margin-top:80px;width: 50px;height: 50px">
+    </div>
+
+</div>
+
+<script>
+  $('#down').click(function () {
+      window.location.href="main3yykc2"
+  })
+  window.onload=function () {
+      var j={};
+      j.oid=localStorage.getItem("oid");
+      var da=JSON.stringify(j);
+      $.ajax({
+          type: "POST",
+          url: "http://139.9.115.22:8080/organization/teacherchoose",
+          data:da,
+          dataType:"json",
+          contentType:"application/json; charset=UTF-8",
+          success: function(data){
+              {
+                  for(var i=0;i<data.length;i++) {
+                      // for(var i=0;i<data.length/4;i++)
+                      // { var div1 = document.createElement('div');
+                      //    div1.id="d"+i;
+                      //     document.getElementById('mg').appendChild(div1);
+                      // }
+                      if(i===0||i%5===0)
+                      {
+                          var div1 = document.createElement('div');
+                             div1.id="d"+i;
+                              document.getElementById('mg').appendChild(div1);
+                      }
+                      var img1 = document.createElement('img');
+                      img1.id = "im" + i;
+                      img1.src = data[i].apath;
+                      img1.alt = data[i].aname;
+                      img1.title=data[i].aid;
+                      img1.className = "img-circle";
+                      img1.style.width = "60px";
+                      img1.style.height = "60px";
+                      img1.style.marginTop = "20px";
+                      img1.style.marginLeft="20px";
+                      div1.appendChild(img1);
+                  }
+                  for(var j=0;j<data.length;j++) {
+                      var b='#im'+j;
+                      $("#mg").on('click',b, function () {
+                          // alert($(this).attr("id"))
+                          // bbb($(this).attr("aid"))
+                          localStorage.setItem("part1",$(this).attr("title"));
+                          window.location.href="main3yykc2";
+                      });
+                  }
+              }
+              //没有参数
+          }
+      })
+
+
+  }
+</script>
+
+</body>
+</html>

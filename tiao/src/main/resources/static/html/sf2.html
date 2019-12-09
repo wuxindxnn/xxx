@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>您的机构身份</title>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <link href="../css/body.css" rel="stylesheet" />
+    <script src="../js/alert.js"></script>
+    <script src="../css/abouta.css"></script>
+
+    <style>
+        button{outline: none;}
+        body {  padding-top: 90px; padding-bottom: 90px;background-color: #000000}
+        /*.change:visited{border: solid red 1px; }*/
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000000 ">
+    <div class="container " >
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-left: auto;margin-right: auto;margin-top: 20px;margin-bottom: 22px;float: none;"/>
+        </div>
+    </div>
+</nav>
+
+<div class="text-center" style="margin-top: 160px;color: white">
+    <h3>选择您的机构身份</h3>
+</div>
+<div class="text-center col-md-12" style="margin-top: 50px;">
+    <button id="jggl" class="change" style="width: 300px;height: 350px;background-color: black;border: solid white 1px;margin-right: 30px;">
+        <img src="../img/zanting.png" style="width: 20px;height: 20px">
+        <br><br><br>
+        <h3 style="color:white" id="own">我是机构管理员</h3>
+    </button>
+    <button style="width: 300px;height: 350px;background-color: black;border: solid white 1px;margin-left: 60px" id="aa">
+        <img src="../img/zanting.png" style="width: 20px;height: 20px">
+        <br><br><br>
+        <h3  class="change" id="tea" style="color:white;">我是机构老师</h3>
+    </button>
+</div>
+<script>
+$("#jggl").click(function () {
+    document.getElementById('jggl').style.border="solid 2px #E8BD5F";
+    document.getElementById('own').style.color="#E8BD5F";
+
+    window.location.href="login0"
+})
+ window.oiddata={};
+$("#aa").click(function () {
+// alert("hello")
+    document.getElementById('aa').style.border="solid 2px #E8BD5F";
+    document.getElementById('tea').style.color="#E8BD5F";
+            window.location.href="http://139.9.115.22:8081/#/";
+
+});
+</script>
+</body>
+</html>

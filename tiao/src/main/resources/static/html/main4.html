@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../css/abouta.css"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color: #F9F9F9}
+        .lie{
+                 border:none;
+                 font-size: medium;
+                 margin-top: 8px;
+                 width: 100%;
+            background-color: white;
+             }
+        a:link,a:visited{color:black;text-decoration:none}
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+        <!--        <div class="collapse navbar-collapse " >-->
+        <!--            <p style="color: white">返回我的导师</p>-->
+        <!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-top: 20px;margin-bottom: 22px;"/>
+        </div>
+    </div>
+</nav>
+<div  style="width: 80%;margin-left:15%;margin-right: 15%;float: none">
+    <div style="width:200px;float: left">
+        <div style="background-color: #FFF7EA;height: 300px;margin-top: 80px;width:100%;" class="text-center">
+            <img src="../img/main.png" class="img-circle" style="width: 100px;height: 100px;margin-top: 80px">
+            <br>
+            <h4><b>塞尔金钢琴学院</b></h4>
+            <button type="button" class="btn btn-warning" style="width:125px;margin-top: 12px;">修改机构信息</button><br>
+        </div>
+        <div style="background-color: white;border:solid white 1px; height: 300px;width:100%;" class="text-center">
+            <button class="lie" style="margin-top: 18px;"><img src="../img/a.png" width="30px"/><a href="main1" >课程进度</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/q.png" width="20px;" style="margin-right: 10px;"/><a href="main2">课程管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/w.png" width="20px" style="margin-right: 10px;"/><a href="main3">预约课程</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/e1.png" width="20px" style="margin-right: 10px;"/><a href="main4" style="color: #E8BD5F">导师管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/r.png" width="20px" style="margin-right: 10px;"/><a href="main5">琴童管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/t.png" width="20px" style="margin-right: 10px;"/><a href="main6">老师进度</a></button>
+        </div>
+    </div>
+    <div style="background-color: white;margin-top: 80px;height: 140px;width:68%;float:left;margin-left: 20px" class="">
+        <div style="height: 165px;background-color: #999999"></div>
+        <br><br>
+        <p style="text-align: left">我的导师</p>
+        <div style="background-color: white;height: 200px;width: 100%;border-top: #E8BD5F solid 2px;float:left;">
+            <div id="mg" style="margin-left: 8%;" >
+            </div>
+            <!--<img src="../img/main.png" class="img-circle" style="width: 60px;height: 60px;margin-top: 20px">-->
+            <!--<img src="../img/main.png" class="img-circle" style="width: 60px;height: 60px;margin-top: 20px">-->
+            <!--<img src="../img/main.png" class="img-circle" style="width: 60px;height: 60px;margin-top: 20px">-->
+            <!--<img src="../img/main.png" class="img-circle" style="width: 60px;height: 60px;margin-top: 20px">-->
+            <!--<img src="../img/main.png" class="img-circle" style="width: 60px;height: 60px;margin-top: 20px">-->
+        </div>
+        </div>
+    </div>
+</div>
+<script>
+    var m;
+    window.onload=function () {
+        var j={};
+        j.oid=localStorage.getItem("oid");
+        var da=JSON.stringify(j);
+        $.ajax({
+        type: "POST",
+        url: "http://139.9.115.22:8080/organization/teacherchoose",
+        data:da,
+        dataType:"json",
+        contentType:"application/json; charset=UTF-8",
+        success: function(data){
+            m=data.length;
+            if(data==="f")
+            {window.location.href="main4add";}
+            else
+            {
+                for(var i=0;i<data.length;i++) {
+                    var img1 = document.createElement('img');
+                    img1.id="i"+i;
+                    img1.src = data[i].apath;
+                    img1.alt = data[i].aname;
+                    img1.onclick=function(){
+                      aaa($(this).attr("id"))
+                    };
+                    img1.className = "img-circle";
+                    img1.style.width = "60px";
+                    img1.style.height = "60px";
+                    img1.style.marginTop = "20px";
+                    img1.style.marginRight="15px";
+
+                    document.getElementById('mg').appendChild(img1);
+                }
+            }
+        }
+
+    })}
+
+
+        function aaa(h)  {
+            var h1=h.substr(1,2);
+            // alert(h1);
+            var url = 'teacher' + '?id=' + h1;
+            window.open(url);
+        }
+
+</script>
+</body>
+</html>

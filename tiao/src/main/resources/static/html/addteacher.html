@@ -1,0 +1,166 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="https://code.jquery.com/jquery-2.1.1.min.js"></script>
+    <script src="../js/bootstrap-paginator.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color: #000000}
+    </style>
+</head>
+<body onload="iop()">
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+<!--        <div class="collapse navbar-collapse " >-->
+<!--            <p style="color: white">返回我的导师</p>-->
+<!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="margin-left: auto;margin-right: auto;float: none;"/>
+        </div>
+    </div>
+</nav>
+
+<div class="text-center" style="margin-top: 60px;color: white">
+    <h3>合光导师团</h3>
+    <h5 style="color: grey">台光汁划导师匡全部由海内外知名音乐学院钢琴专业的博硕士生及在取救师组成</h5>
+</div>
+<br><br>
+<div class="">
+    <img src="../img/s.png" style="width: 20px;height: 20px;margin-top: 6.5px;float:left;position:absolute;margin-left: 800px;z-index:999;">
+    <input type="text" id="find" class="form-control" placeholder="请输入导师姓名" style="margin-left: 430px;width: 400px;background-color: black;z-index:-5">
+</div>
+<br><br>
+<div class="row" >
+<div class="col-md-6" id="one">
+<!--    <img src="../img/main.png" style="width: 500px;height: 300px;float: right;z-index: -1" >-->
+</div>
+    <div class="col-md-6 " id="two">
+<!--        <img src="../img/main.png" style="width: 500px;height: 300px;float:left;">-->
+    </div>
+</div>
+<footer id="page" class="text-center"></footer>
+<br>
+<!--<div class="row" id="two">-->
+<!--    <div class="col-md-6">-->
+<!--        <img src="../img/main.png" style="width: 500px;height: 300px;float: right">-->
+<!--    </div>-->
+<!--    <div class="col-md-6">-->
+<!--        <img src="../img/main.png" style="width: 500px;height: 300px;float:left;">-->
+<!--    </div>-->
+<!--</div>-->
+<!--<div id="example" style="text-align: center"> <ul id="pageLimit"></ul> </div>-->
+<script>
+    function page(){window.location.href="main1"}
+    window.onload=function(){
+        for(var i=0;i<=3;i++){
+            var b1=document.createElement('button');
+            b1.id="b"+i;
+            b1.innerHTML=i+1;
+            b1.style.width="40px";
+            b1.style.height="40px";
+            b1.className="btn btn-info";
+            b1.style.backgroundColor="black";
+            b1.style.border="none";
+            document.getElementById('page').appendChild(b1);
+        }
+    $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/teacherchoose1",
+                dataType: "json",
+                success: function (data) {
+                    window.data=data;
+                   window.num=data.length/4;
+                    for(var i=0;i<=num;i++){
+                       var b1=document.createElement('button');
+                       b1.id="b"+i;
+                       b1.innerHTML=i+1;
+                       b1.style.width="20px";
+                       b1.style.height="20px";
+                       b1.className="btn btn-info";
+                       document.getElementById('page').appendChild(b1);
+                    }
+                    // for (var i=0;i<data.length/4;i+=4)
+                    {
+                    var i1=document.createElement('img');
+                    i1.src=data[0].apath;
+                    i1.id=data[0].aid;
+                    i1.style.zIndex="-1";
+                    i1.style.width="500px";
+                    i1.style.height="300px";
+                    i1.style.float="right";
+                    var i2=document.createElement('img');
+                    i2.src=data[1].apath;
+                    i2.id=data[1].aid;
+                    var i3=document.createElement('img');
+                    i3.src=data[2].apath;
+                    i3.id=data[2].aid;
+                    var i4=document.createElement('img');
+                    i4.src=data[3].apath;
+                    i4.id=data[3].aid;
+                    document.getElementById('one').appendChild(i1);
+                    document.getElementById('one').appendChild(i2);
+                    document.getElementById('two').appendChild(i3);
+                    document.getElementById('two').appendChild(i4);
+                }}
+    })}
+
+    for(var j=0;j<=3;j++) {
+        $("#page").on('click',"#b"+j, function () {
+            var i=$(this).attr("id").substr(1,2);
+            // alert(i)
+            exchange(i);
+            // aaa($(this).attr("aid"))
+        });
+    }
+    function exchange(i) {
+
+        var i1=document.createElement('img');
+        i1.src=data[i*4].apath;
+        i1.id=data[i*4].aid;
+        i1.style.zIndex="-1";
+        i1.style.width="500px";
+        i1.style.height="300px";
+        i1.style.float="right";
+        var i2=document.createElement('img');
+        i2.src=data[i*4+1].apath;
+        i2.id=data[i*4+1].aid;
+        var i3=document.createElement('img');
+        i3.src=data[i*4+2].apath;
+        i3.id=data[i*4+2].aid;
+        var i4=document.createElement('img');
+        i4.src=data[i*4+3].apath;
+        i4.id=data[i*4+3].aid;
+        document.getElementById('one').appendChild(i1);
+        document.getElementById('one').appendChild(i2);
+        document.getElementById('two').appendChild(i3);
+        document.getElementById('two').appendChild(i4);
+    }
+ function aaa(aid){
+        var j={};
+        j.aid=aid;
+        var da=JSON.stringify(j);
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/",
+            data:da,
+            dataType: "json",
+            success: function (data) {
+                localStorage.setItem("anna",JSON.stringify(data));
+                window.location.href="dszsym";
+            }
+        })
+ }
+    $('find').click(function () {
+
+            })
+</script>
+</body>
+</html>

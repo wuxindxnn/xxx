@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color: #000000;color: white}
+    </style>
+</head>
+<body>
+<!--navbar指定此nav为导航栏，navbar-inverse指定导航的样式，navbar-fixed-top指定导航栏的位置-->
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000000 ">
+    <!--container 导航栏容器-->
+    <div class="container " >
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-left: auto;margin-right: auto;margin-top: 20px;margin-bottom: 22px;float: none;"/>
+        </div>
+    </div>
+</nav>
+<div class="text-center row" style="margin-top: 80px">
+    <div class="col-md-4 text-right">
+        <h4 class="">老师姓名：<h4 id="aname"></h4></h4>
+        <h4>老师年龄：<h4 id="age"></h4></h4>
+        <h4>所授课程：<h4 id="object"></h4></h4>
+        <h4>所获荣誉：<h4 id="honour"></h4></h4>
+        <h4>个人简介：<h4 id="information"></h4></h4>
+        <button id="add" class="btn btn-info" style="background-color: #E8BD5F;width: 100px;">添加导师</button>
+    </div>
+    <div class="col-md-8 text-center">
+    <img src="../img/main.png" style="width: 500px;height: 300px;">
+    </div>
+
+</div>
+
+</footer>
+<script>
+    var info=JSON.parse(localStorage.getItem("anna"));
+    window.onload=function () {
+        document.getElementById("aname").innerHTML=info.aname;
+        document.getElementById("age").innerHTML=info.age;
+        document.getElementById("object").innerHTML=info.object;
+        document.getElementById("honour").innerHTML=info.honour;
+        document.getElementById("information").innerHTML=info.information;
+    }
+    $('#add').click(function () {
+        var j={};
+        j.aid=info.aid;
+        j.oid=localStorage.getItem("oid");
+        var da=JSON.stringify(j);
+            $.ajax({
+                type: "POST",
+                url: "http://localhost:8080/organization/artist",
+                data:da,
+                contentType:"application/json; charset=UTF-8",
+                dataType: "json",
+                success: function(data){
+                   alert("添加成功")
+                    window.location.href="main4"
+                }
+            })
+    })
+</script>
+</body>
+</html>

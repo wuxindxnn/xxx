@@ -1,0 +1,209 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script src="../js/alert.js"></script>
+    <script src="../css/abouta.css"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color:#F9F9F9;}
+        .lie{
+            border:none;
+            font-size: medium;
+            margin-top: 8px;
+            width: 100%;
+            background-color: white;
+        }
+        a:link,a:visited{color:black;text-decoration:none}
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+        <!--        <div class="collapse navbar-collapse " >-->
+        <!--            <p style="color: white">返回我的导师</p>-->
+        <!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-left: auto;margin-right: auto;margin-top: 20px;margin-bottom: 22px;float: none;"/>
+        </div>
+    </div>
+</nav>
+<div  style="width: 80%;margin-left:15%;margin-right: 15%;float: none">
+    <div style="width:200px;float: left">
+        <div style="background-color: #FFF7EA;height: 300px;margin-top: 80px;width:100%;" class="text-center">
+            <img src="../img/main.png" class="img-circle" style="width: 100px;height: 100px;margin-top: 80px">
+            <br>
+            <h4><b>塞尔金钢琴学院</b></h4>
+            <button type="button" class="btn btn-warning" style="width:125px;margin-top: 12px;">修改机构信息</button><br>
+        </div>
+        <div style="background-color: white;border:solid white 1px; height: 300px;width:100%;" class="text-center">
+            <button class="lie" style="margin-top: 18px;"><img src="../img/a.png" width="30px"/><a href="main1" >课程进度</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/q.png" width="20px;" style="margin-right: 10px;"/><a href="main2">课程管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/w.png" width="20px" style="margin-right: 10px;"/><a href="main3">预约课程</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/e.png" width="20px" style="margin-right: 10px;"/><a href="main4">导师管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/r1.png" width="20px" style="margin-right: 10px;"/><a href="main5" style="color: #E8BD5F">琴童管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/t.png" width="20px" style="margin-right: 10px;"/><a href="main6">老师进度</a></button>
+        </div>
+    </div>
+    <div style="background-color: white;margin-top: 80px;height: 140px;width:68%;float:left;margin-left: 20px" class="text-center">
+        <div style="height: 165px;background-color: #999999"></div>
+
+
+        <div>
+            <p style="text-align: left;margin-top: 40px;">我的琴童><a id="wdqt"></a></p>
+            <div style="border-top: solid #E8BD5F 2px;background-color: white">
+                <div style="margin-top: 28px;">
+                    <h5 style="color:#999999;">学生：<input id="xsxm" style="border-radius: 6px;width:120px;height: 26px;color: black" placeholder=""/></h5>
+                    <h5 style="color:#999999;">性别：<input id="ssex" style="border-radius: 6px;width:120px;height: 26px;color: black" placeholder=""/></h5>
+                    <h5 style="color:#999999;">年龄：<input id="age" style="border-radius: 6px;width:120px;height: 26px;color: black" placeholder=""/></h5>
+                </div>
+                <div style="margin-top: 22px;margin-bottom: 22px">
+                    <a href="main/main" style="margin-bottom: 25px;">sdhkbcdhsbck.docx</a>
+                </div>
+                <hr/>
+                <div>
+                    <h5 class="text-center">已学习<a id="time"></a>次</h5>
+                </div>
+                <div id="fuq">
+                    <table class="table " id="jjj">
+                        <thead>
+                        <tr >
+                            <th class="text-center">序号</th>
+                            <th class="text-center">导师</th>
+                            <th class="text-center">上传课程时间</th>
+                            <th class="text-center">反馈课程时间</th>
+                            <th class="text-center">--</th>
+                        </tr>
+                        </thead>
+                        <tbody>
+
+                        </tbody>
+                    </table>
+                    <div style="margin-bottom: 26px;">
+                        <button type="button" class="btn btn-warning text-left" id="ycqt">移除该琴童</button><br>
+                    </div>
+                </div>
+
+            </div>
+        </div>
+    </div>
+</div>
+
+
+<script type="text/javascript">
+    // $("#ycqt").bind("click", function () {
+    //     myAlert('系统提示','是否移除学生张三',function(){
+    //         //要回调的方法
+    //         window.location.href="http://www.baidu.com"
+    //     });
+    // });
+
+
+    $("#ycqt").bind("click", function () {
+        myConfirm('系统确认框','是否移除学生张三！',function(r){
+            if(r){
+                window.location.href="main52"
+            }
+        });
+    });
+    var m52=JSON.parse(localStorage.getItem("main5data"));
+    // console.log(m52[1].classtime)
+    // console.log(JSON.parse(localStorage.getItem("main5data")))
+
+    var m52d=JSON.parse(localStorage.getItem("qwer"));
+    console.log(m52d)
+    var aa=location.search;
+    var p=aa.substr(4,2);
+    // alert(p)
+    window.onload=function () {
+        document.getElementById('time').innerHTML=m52[p].classtime;
+        $('#xssm').attr("name",m52[p].sname);
+
+        document.getElementById('ssex').value=m52[p].ssex;
+        document.getElementById('age').value=m52[p].sage;
+        document.getElementById('xsxm').value=m52[p].sname;
+        // alert(m52d[0].uid+"++++++++");
+        // alert(m52d[0].fid+"----+++++");
+        for(var i=0;i<m52d.length;i++) {
+            var w1=document.createElement('tr');
+            w1.className="active";
+            w1.style.height="40px"
+            var w11=document.createElement('td');
+            w11.innerHTML=i+1;
+            // var w11=document.createElement('td');
+            // w11.innerHTML=m52d[i].aid;
+            var w12=document.createElement('td');
+            w12.innerHTML=m52d[i].aname;
+            var w13=document.createElement('td');
+            w13.innerHTML=m52d[i].feedbackdate;
+            var w14=document.createElement('td');
+            w14.innerHTML=m52d[i].uploaddate;
+            // var w16=document.createElement('td');
+            // w16.innerHTML="--";
+            var w15=document.createElement('button');
+            w15.id="w"+i;
+            w15.type="button";
+            w15.style.marginTop="6px"
+            w15.className="btn btn-warning";
+            w15.style.fontSize="5px";
+            w15.innerHTML="详  情";
+            w15.style.width="100px";
+            w15.style.height="25px"
+            w1.appendChild(w11);
+            w1.appendChild(w12);
+            w1.appendChild(w13);
+            w1.appendChild(w14);
+            w1.appendChild(w15);
+            // w1.appendChild(w16);
+            document.getElementById('jjj').appendChild(w1);
+        }
+
+        // alert(arr)
+        for(var j=0;j<m52d.length;j++) {
+            var b='#w'+j;
+            $("#fuq").on('click',b, function () {
+                // alert($(this).attr("id"))
+                // alert($(this).name+"-------")
+                aaa($(this).attr("id"))
+            });
+        }
+    };
+    function aaa(i) {
+        var k=i.substr(1,2);
+        var j={};
+        j.uid=m52d[k].uid;
+        j.fid=m52d[k].fid;
+        var da=JSON.stringify(j);
+        $.ajax({
+            type: "POST",
+            url: "http://139.9.115.22:8080/organization/studentddetails",
+            data:da,
+            dataType: "json",
+            contentType:"application/json; charset=UTF-8",
+            success: function(data){
+                data=JSON.stringify(data);
+                localStorage.setItem("info",data);
+                var s=""+k+""+p+"";
+                // alert("++++++++++"+s);
+                var url = ' main522' + '?id=' + s;
+                window.open(url);
+            }
+        })
+
+    }
+
+    // alert("消息提示",1,function(r){if(r){
+    //
+    // }});
+</script>
+</body>
+</html>

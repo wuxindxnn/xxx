@@ -1,0 +1,207 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <script type="text/javascript" src="./js/spop.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+    <style>
+    body {  padding-top: 90px; padding-bottom: 90px;background-color: #F9F9F9}
+    a,a:hover,a:link,a:visited{color: white;;text-decoration:none}
+    a:hover{ }
+</style>
+</head>
+<body>
+<!--navbar指定此nav为导航栏，navbar-inverse指定导航的样式，navbar-fixed-top指定导航栏的位置-->
+<nav class="navbar navbar-inverse navbar-fixed-top" style="background-color: #000000 ">
+<!--    <a  class="navbar-brand " href="sf1" style="float:right;margin-right: 30px;">登陆</a>-->
+    <a  class="navbar-brand " href="main3" style="position:absolute;z-index:999;margin-left: 22px;margin-top: 22px;font-size: 16px;color: white"><span style="color:#E8BD5F;">&lt;</span>&nbsp;返回预约课程</a>
+    <!--container 导航栏容器-->
+    <div class="container text-center " >
+        <div class="collapse navbar-collapse " id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-top: 20px;margin-bottom: 22px;"/>
+        </div>
+    </div>
+</nav>
+<div class="text-center" style="margin-top: 80px;">
+    <div>
+    <img style="margin-top: 38px;width: 80px;height: 80px" src="../img/main.png">
+    </div>
+    <div>
+        <h4 style="text-decoration: none;color: black"><b>预约课程</b></h4>
+    </div>
+    <div>
+        <img style="margin-top: 28px;width: 430px;height: 80px;margin-left: 10px;" src="../img/h4.png">
+    </div>
+    <div>
+    <h5 style="margin-top: 40px;">选择日期</h5>
+        <div class="form-inline row">
+            <form name="reg_testdate">
+                <select  id="year" class="form-control" name="YYYY" onChange="YYYYDD(this.value)">
+                    <option value="">请选择 年</option>
+                </select>
+                <select  id="month" class="form-control" name="MM" onChange="MMDD(this.value)">
+                    <option value="">选择 月</option>
+                </select>
+                <select  id="day" class="form-control" name="DD" onChange="DDD(this.value)">
+                    <option value="">选择 日</option>
+                </select>
+        </div>
+        <h5 style="margin-top: 10px;color: grey" class="left">*预约需提前7天。</h5>
+
+        <h5 style="margin-top: 40px;">选择时间段</h5>
+        <div class="">
+            <select id="time" class="form-control text-center"  style="background-color: white;width: 330px;margin-left: auto;margin-right: auto;float: none">
+                <option>上午8：00——上午10：00</option>
+                <option>下午13：00——上午15：00</option>
+                <option>下午15：00——上午17：00</option>
+                <option>晚上18：00——上午20：00</option>
+
+            </select>
+        </div>
+    </div>
+
+
+    <div>
+        <img id="up" class="img-circle" src="../img/up.PNG" style="margin-top:80px;width: 50px;height: 50px">
+    </div>
+
+    <div style="margin-top: 30px">
+        <button type="button" class="btn btn-warning" id="qrsc">确认上传</button><br>
+    </div>
+</div>
+<script>
+    $('#up').click(function () {
+        window.location.href="main3yykc2";
+    })
+
+    $('#qrsc').click(function () {
+        var part1=localStorage.getItem("part1");
+        var part2=JSON.parse(localStorage.getItem("part2"));
+        var year=$("#year").find("option:selected").text();
+        var month=$("#month").find("option:selected").text();
+        var day= $("#day").find("option:selected").text();
+        var j={};
+        // j.year=$("#year").find("option:selected").text();
+        // j.month=$("#month").find("option:selected").text();
+        // j.day= $("#day").find("option:selected").text();
+        j.oid=localStorage.getItem("oid");
+        j.sudate=year+"-"+month+"-"+day;
+        j.sutime=$("#time").find("option:selected").text();
+        j.aid=part1;
+        j.spectium=part2.spectium;
+        j.song=part2.song;
+        j.sname=part2.sname;
+        var da=JSON.stringify(j);
+        $.ajax({
+            type: "POST",
+            url: "http://localhost:8080/organization/addsubscribe",
+            data:da,
+            dataType: "json",
+            contentType:"application/json; charset=UTF-8",
+            success: function(data) {
+                if (data === "t") {
+                    alert("ok！");
+                    window.location.href = "main3yykcok";
+                } else {
+                    alert("系统异常！");
+                    // window.location.href="main3yykc1";}
+                }
+            }
+        });
+
+    })
+    window.onload=function () {
+        var selid = document.getElementById("year");
+        for(var i=0; i<10;i++){ //循环添加多个值
+            selid.option[i] = new Option(i,i);
+        }
+        selid.options[selid.options.length]=new Option("1","2"); // 在最后一个值后面添加多一个
+    };
+    var changeDD = 1;//->一个全局变量
+    function YYYYMMDDstart() {
+        MonHead = [31, 28, 31, 30, 31, 30, 31, 31, 30, 31, 30, 31];
+        //先给年下拉框赋内容
+        var y = new Date().getFullYear();
+        for (var i = (y - 47); i < (y + 21); i++) //以今年为准，前30年，后30年
+            document.reg_testdate.YYYY.options.add(new Option(" " + i + " 年", i));
+        //赋月份的下拉框
+        for (var i = 1; i < 13; i++)
+            document.reg_testdate.MM.options.add(new Option(" " + i + " 月", i));
+        document.reg_testdate.YYYY.value = y;
+        document.reg_testdate.MM.value = new Date().getMonth() + 1;
+        var n = MonHead[new Date().getMonth()];
+        if (new Date().getMonth() == 1 && IsPinYear(YYYYvalue)) n++;
+        writeDay(n); //赋日期下拉框
+        //->赋值给日，为当天日期
+//        document.reg_testdate.DD.value = new Date().getDate();
+    }
+    if (document.attachEvent)
+        window.attachEvent("onload", YYYYMMDDstart);
+    else
+        window.addEventListener('load', YYYYMMDDstart, false);
+
+    function YYYYDD(str) //年发生变化时日期发生变化(主要是判断闰平年)
+    {
+        var MMvalue = document.reg_testdate.MM.options[document.reg_testdate.MM.selectedIndex].value;
+        if (MMvalue == "") {
+//            var e = document.reg_testdate.DD;
+            optionsClear(e);
+            return;
+        }
+        var n = MonHead[MMvalue - 1];
+        if (MMvalue == 2 && IsPinYear(str)) n++;
+        writeDay(n)
+    }
+
+    function MMDD(str) //月发生变化时日期联动
+    {
+        var YYYYvalue = document.reg_testdate.YYYY.options[document.reg_testdate.YYYY.selectedIndex].value;
+        if (YYYYvalue == "") {
+            var e = document.reg_testdate.DD;
+            optionsClear(e);
+            return;
+        }
+        var n = MonHead[str - 1];
+        if (str == 2 && IsPinYear(YYYYvalue)) n++;
+        writeDay(n)
+    }
+
+    function writeDay(n) //据条件写日期的下拉框
+    {
+        var e = document.reg_testdate.DD;
+        optionsClear(e);
+        for (var i = 1; i < (n + 1); i++)
+        {
+            e.options.add(new Option(" " + i + " 日", i));
+            if(i == changeDD){
+                e.options[i].selected = true;  //->保持选中状态
+            }
+        }
+        console.log(i);
+        console.log(changeDD);
+    }
+
+    function IsPinYear(year) //判断是否闰平年
+    {
+        return (0 == year % 4 && (year % 100 != 0 || year % 400 == 0));
+    }
+
+    function optionsClear(e) {
+        e.options.length = 1;
+    }
+    //->随时监听日的改变
+    function DDD(str){
+        changeDD = str;
+    }
+</script>
+
+
+</body>
+</html>

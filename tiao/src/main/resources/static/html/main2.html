@@ -1,0 +1,270 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../css/abouta.css"></script>
+        <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color:#F9F9F9;}
+        .lie{
+                 border:none;
+                 font-size: medium;
+                 margin-top: 8px;
+                 width: 100%;
+            background-color: white;
+             }
+        a:link,a:visited{color:black;text-decoration:none}
+        th{border:none;}
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+        <!--        <div class="collapse navbar-collapse " >-->
+        <!--            <p style="color: white">返回我的导师</p>-->
+        <!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-left: auto;margin-right: auto;margin-top: 20px;margin-bottom: 22px;float: none;"/>
+        </div>
+    </div>
+</nav>
+<div  style="width: 80%;margin-left:15%;margin-right: 15%;float: none">
+    <div style="width:200px;float: left">
+        <div style="background-color: #FFF7EA;height: 300px;margin-top: 80px;width:100%;" class="text-center">
+            <img src="../img/main.png" class="img-circle" style="width: 100px;height: 100px;margin-top: 80px">
+            <br>
+            <h4><b>塞尔金钢琴学院</b></h4>
+            <button type="button" class="btn btn-warning" style="width:125px;margin-top: 12px;">修改机构信息</button><br>
+        </div>
+        <div style="background-color: white;border:solid white 1px; height: 300px;width:100%;" class="text-center">
+            <button class="lie" style="margin-top: 18px;"><img src="../img/a.png" width="30px"/><a href="main1" >课程进度</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/q1.png" width="20px;" style="margin-right: 10px;"/><a href="main2" style="color: #E8BD5F">课程管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/w.png" width="20px" style="margin-right: 10px;"/><a href="main3">预约课程</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/e.png" width="20px" style="margin-right: 10px;"/><a href="main4">导师管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/r.png" width="20px" style="margin-right: 10px;"/><a href="main5">琴童管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/t.png" width="20px" style="margin-right: 10px;"/><a href="main6">老师进度</a></button>
+        </div>
+    </div>
+    <div style="background-color: white;margin-top: 80px;height: 140px;width:68%;float:left;margin-left: 20px" class="">
+        <div style="height: 165px;background-color: #999999"></div>
+        <br><br>
+        <div class="text-right text-center">
+<!--            <button type="button" class="btn btn-warning text-left" id="sckc">上传课程</button><br>-->
+        </div>
+        <div>
+            <p style="text-align: left;margin-left: 11px;margin-top: 22px;"><b>未反馈课程</b></p>
+            <div  style="border-top: solid #E8BD5F 2px;background-color: white;width:auto;">
+                <h5 id="nofeed"  style="color:grey;margin-top: 22px;margin-left: 4%;"></h5>
+                <table class="table text-center">
+                    <thead>
+                    <tr >
+                        <th class="text-center" style="border: none"><h5 id="x1"></h5></th>
+                        <th class="text-center" style="border: none"><h5 id="x2"></h5></th>
+                        <th class="text-center"  style="border: none"><h5 id="x3"></h5></th>
+                        <th class="text-center" style="border: none"><h5 id="x4"></h5></th>
+                        <th class="text-center" style="border: none"><h5 id="x5"></h5></th>
+                    </tr>
+                    </thead>
+                    <tbody id="wfkkc">
+<!--                    <tr class="active">-->
+<!--                        <td>张三三</td>-->
+<!--                        <td>蔡男</td>-->
+<!--                        <td>2019.10.21&nbsp;11:29</td>-->
+<!--                        <td>&#45;&#45;</td>-->
+<!--                        <td><button id="wxq" type="button" class="btn btn-warning" style="font-size: 5px;">详情</button></td>-->
+<!--                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+            <div style=";margin-top: 13px;">
+                <p style="text-align: left;margin-left: 11px;margin-top: 34px;"><b>已反馈课程</b></p>
+            <div  style="border-top: solid #E8BD5F 2px;background-color: white;height: 210px">
+                <h5 id="overfeed"  style="color:grey;margin-top: 22px;margin-left: 4%"></h5>
+                <table class="table text-center">
+                    <thead>
+                    <tr  >
+                        <th class="text-center" style="border: none"><h5 id="x11"></h5></th>
+                        <th class="text-center" style="border: none"><h5 id="x22"></h5></th>
+                        <th class="text-center" style="border: none"><h5 id="x33"></h5></th>
+                        <th class="text-center" style="border: none"><h5 id="x44"></h5></th>
+                        <th class="text-center" style="border: none"><h5 id="x55"></h5></th>
+                    </tr>
+                    </thead>
+                    <tbody id="qw">
+<!--                    <tr class="active">-->
+<!--                        <td>张三三</td>-->
+<!--                        <td>蔡男</td>-->
+<!--                        <td>2019.10.21&nbsp;11:29</td>-->
+<!--                        <td>&#45;&#45;</td>-->
+<!--                        <td><button id="yxq"  type="button" onclick="aaa(2)" class="btn btn-warning" style="font-size: 5px;">详情</button></td>-->
+<!--                    </tr>-->
+
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    var arr=[];
+    var arr2=[];
+
+    function aaa(h)  {
+        var url = 'main21w' + '?id=' + h;
+        window.open(url);
+    }
+    function bbb(h){
+        var url='main21y'+'?id='+h;
+        window.open(url)
+    }
+    $("#wxq").click(function () {
+        window.location.href="main21w"
+    })
+    // $("#yxq").click(function () {
+    //     window.location.href="main21y"
+    // })
+    $("#sckc").click(function () {
+        window.location.href="main2sckc"
+    })
+
+   window.onload=function () {
+        var j={};
+        j.oid=localStorage.getItem("oid");
+        var da=JSON.stringify(j);
+        var q=0,p=0;
+        $.ajax({
+            type: "POST",
+            url: "http://139.9.115.22:8080/organization/class",
+            data:da,
+            dataType: "json",
+            contentType:"application/json; charset=UTF-8",
+            success: function(data){
+                arr=new Array(data.length);
+                arr2=new Array(data.length);
+                console.log(data.length);
+                localStorage.setItem("op",JSON.stringify(data));
+                console.log(JSON.parse(localStorage.getItem("op")));
+                if (data=== 1) {
+                    document.getElementById('nofeed').innerHTML='您没有未反馈课程';
+                    document.getElementById('overfeed').innerHTML='您没有已反馈课程';}
+                else{
+                    document.getElementById('nofeed').style.display="none";
+                    document.getElementById('overfeed').style.display="none";
+                }
+             for(var i=0,m=0,n=0;i<data.length;i++) {
+
+                if(data[i].feedbackdatetime==="null")
+                 {
+                 if(q===0){
+                 document.getElementById('x1').innerHTML="学生";
+                 document.getElementById('x2').innerHTML="导师";
+                 document.getElementById('x3').innerHTML="课程上传时间";
+                 document.getElementById('x4').innerHTML="课程反馈时间";
+                 document.getElementById('x5').innerHTML="--";q++;}
+                  var w1=document.createElement('tr');
+                  w1.className="active";
+                     var w11=document.createElement('td');
+                     w11.innerHTML=data[i].sname;
+                     var w12=document.createElement('td');
+                     w12.innerHTML=data[i].aname;
+                     var w13=document.createElement('td');
+                     w13.innerHTML=data[i].uploaddatetime;
+                     var w14=document.createElement('td');
+                     w14.innerHTML="--";
+                     var w16=document.createElement('td');
+                     var w15=document.createElement('button');
+                     w15.id="w"+i;
+                     arr[m++]=i;
+                     w15.type="button";
+                     w15.className="btn btn-warning";
+                     w15.style.fontSize="5px";
+                     w15.innerHTML="详情";
+                     // w15.onclick=function(){aaa(w15.id)}
+                     w1.appendChild(w11);
+                     w1.appendChild(w12);
+                     w1.appendChild(w13);
+                     w1.appendChild(w14);
+                     w1.appendChild(w16);
+                     w16.appendChild(w15);
+
+                     document.getElementById('wfkkc').appendChild(w1);
+                 }
+                 else{
+                     if(p===0){
+                         document.getElementById('x11').innerHTML="学生";
+                         document.getElementById('x22').innerHTML="导师";
+                         document.getElementById('x33').innerHTML="课程上传时间";
+                         document.getElementById('x44').innerHTML="课程反馈时间";
+                         document.getElementById('x55').innerHTML="--";p++;}
+                     var y1=document.createElement('tr');
+                     y1.className="active";
+                     var y11=document.createElement('td');
+                     y11.innerHTML=data[i].sname;
+                     var y12=document.createElement('td');
+                     y12.innerHTML=data[i].aname;
+                     var y13=document.createElement('td');
+                     y13.innerHTML=data[i].uploaddatetime;
+                     var y14=document.createElement('td');
+                     y14.innerHTML=data[i].feedbackdatetime;
+                    var y16=document.createElement('td');
+                    var y15=document.createElement('button');
+                     y15.id="y"+i;
+                     y15.type="button";
+                     arr2[n++]=i;
+                     y15.className="btn btn-warning";
+                     y15.style.fontSize="5px";
+                     y15.innerHTML="详情";
+                     // y15.onclick=aaa(i);
+                     y1.appendChild(y11);
+                     y1.appendChild(y12);
+                     y1.appendChild(y13);
+                     y1.appendChild(y14);
+                     y1.appendChild(y16);
+                     y16.appendChild(y15);
+
+                     document.getElementById('qw').appendChild(y1); }
+             }
+
+                // alert(arr)
+                for(var j=0;j<m;j++) {
+                    var b='#w'+arr[j];
+                    $("#wfkkc").on('click',b, function () {
+                      // alert($(this).attr("id"))
+                        aaa($(this).attr("id"))
+                    });
+                }
+
+             for(var j=0;j<n;j++) {
+                    var b='#y'+arr2[j];
+                    $("#qw").on('click',b, function () {
+                      // alert($(this).attr("id"))
+                        bbb($(this).attr("id"))
+                    });
+                }
+               }
+
+        })
+       // document.getElementById('w4').click(function () {
+       //     alert("11")
+       //     var url = 'main21w' + '?id=' + 4;
+       //     window.open(url);
+       // })
+
+    }
+
+     // }
+  // document.getElementById('w4').onclick=aaa(4);
+
+</script>
+</body>
+</html>

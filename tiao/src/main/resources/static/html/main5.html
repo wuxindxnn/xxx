@@ -1,0 +1,221 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <!--    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>-->
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <!--    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>-->
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../css/abouta.css"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color:#F9F9F9}
+        .lie{
+            border:none;
+            font-size: medium;
+            margin-top: 8px;
+            width: 100%;
+            background-color: white;
+        }
+        a:link,a:visited{color:black;text-decoration:none}
+    a,a:hover{color: black;text-decoration: none}
+    </style>
+</head>
+<body onload="f()">
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+        <!--        <div class="collapse navbar-collapse " >-->
+        <!--            <p style="color: white">返回我的导师</p>-->
+        <!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-top: 20px;margin-bottom: 22px;"/>
+        </div>
+    </div>
+</nav>
+<div  style="width: 80%;margin-left:15%;margin-right: 15%;float: none">
+    <div style="width:200px;float: left">
+        <div style="background-color: #FFF7EA;height: 300px;margin-top: 80px;width:100%;" class="text-center">
+            <img src="../img/main.png" class="img-circle" style="width: 100px;height: 100px;margin-top: 80px">
+            <br>
+            <h4><b>塞尔金钢琴学院</b></h4>
+            <button type="button" class="btn btn-warning" style="width:125px;margin-top: 12px;">修改机构信息</button><br>
+        </div>
+        <div style="background-color: white;border:solid white 1px; height: 300px;width:100%;" class="text-center">
+            <button class="lie" style="margin-top: 18px;"><img src="../img/a.png" width="30px"/><a href="main1" >课程进度</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/q.png" width="20px;" style="margin-right: 10px;"/><a href="main2">课程管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/w.png" width="20px" style="margin-right: 10px;"/><a href="main3">预约课程</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/e.png" width="20px" style="margin-right: 10px;"/><a href="main4">导师管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/r1.png" width="20px" style="margin-right: 10px;"/><a href="main5" style="color: #E8BD5F">琴童管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/t.png" width="20px" style="margin-right: 10px;"/><a href="main6">老师进度</a></button>
+        </div>
+    </div>
+    <div style="background-color: white;margin-top: 80px;height: 140px;width:68%;float:left;margin-left: 20px" class="">
+        <div style="height: 165px;background-color: #999999"></div>
+        <br><br>
+        <div class="text-right">
+            <button id="tjqt" type="button" class="btn btn-warning text-left" style="margin-top: 0px;">添加琴童</button><br>
+        </div>
+        <p style="text-align: left">我的琴童</p>
+        <div style="background-color: white;height: 350px;border-top: #E8BD5F solid 2px;text-align: center">
+            <div style="margin-top: 20px;text-align: center">
+                <img src="../img/sousuo%20(1).png" style="margin-left: 28%;width: 20px;height: 20px;margin-top: 3px;float:left;position:absolute;z-index:999;">
+                <input type="text" style="width: 57%;border-radius: 6px">
+            </div>
+            <div style="margin-top: 10px;text-align: center">
+                <a href="#" style="color:black;text-decoration:none;margin-left: 20px">按拼音排序</a>
+                <a href="#" style="color:black;text-decoration:none;margin-left: 30px;">按学习次数排序</a>
+                <a href="#" style="color:black;text-decoration:none;margin-left: 30px;">按上课时间排序</a>
+            </div>
+            <div style="margin-top: 35px;">
+                <table class="table">
+                    <thead>
+                    <tr class="text-center">
+                        <th class="text-center">学生</th>
+                        <th class="text-center">性别</th>
+                        <th class="text-center">学习次数</th>
+                        <th class="text-center">最近上课时间</th>
+                        <th class="text-center">--</th>
+                    </tr>
+                    </thead>
+                    <tbody id="qtgl" class="text-center">
+                    <!--                    <tr class="active ">-->
+                    <!--                        <td >xxx</td>-->
+                    <!--                        <td>女</td>-->
+                    <!--                        <td>已学习5次</td>-->
+                    <!--                        <td>&#45;&#45;</td>-->
+                    <!--                        <td><button type="button" class="btn btn-warning" style="font-size: 5px;">详情</button></td>-->
+                    <!--                    </tr>-->
+                    <!--                    <tr class="active">-->
+                    <!--                        <td>xxx</td>-->
+                    <!--                        <td>女</td>-->
+                    <!--                        <td>已学习5次</td>-->
+                    <!--                        <td>&#45;&#45;</td>-->
+                    <!--                        <td><button type="button" class="btn btn-warning" style="font-size: 5px;">详情</button></td>-->
+                    <!--                    </tr>-->
+                    <!--                    <tr class="active">-->
+                    <!--                        <td>xxx</td>-->
+                    <!--                        <td>女</td>-->
+                    <!--                        <td>已学习5次</td>-->
+                    <!--                        <td>&#45;&#45;</td>-->
+                    <!--                        <td><button type="button" class="btn btn-warning" style="font-size: 5px;">详情</button></td>-->
+                    <!--                    </tr>-->
+                    </tbody>
+                </table>
+                <div>
+                    <a href="#">共<a id="num"></a>名</a>
+                    <a href="#"  style="text-align:center;margin-left: 5px;">已学习共<a id="classtime"></a>次</a>
+                </div>
+            </div >
+            <div>
+
+            </div>
+        </div>
+
+
+    </div>
+
+</div>
+<script>
+    var arr=[];
+    var num=0;
+    function f(){
+        var j={};
+        // j.oid=localStorage.getItem("oid");
+        j.oid=1;
+        var da=JSON.stringify(j);
+        $.ajax({
+            type: "POST",
+            url: "http://139.9.115.22:8080/organization/studentclasstime",
+            data:da,
+            dataType: "json",
+            contentType:"application/json; charset=UTF-8",
+            success: function(data){
+                arr=new Array(data.length);
+                // main5data = data;
+
+                localStorage.setItem("main5data",JSON.stringify(data));
+                // console.log(JSON.parse(localStorage.getItem("main5data")))
+                for(var i=0,m=0;i<data.length;i++) {
+                    if (data[i].classtime===0){
+                        data[i].uploaddate="————"
+                    }
+                    var w1=document.createElement('tr');
+                    // w1.className="active";
+                    var w11=document.createElement('td');
+                    w11.innerHTML=data[i].sname;
+                    var w12=document.createElement('td');
+                    w12.innerHTML=data[i].ssex;
+                    var w13=document.createElement('td');
+                    w13.innerHTML=data[i].classtime;
+                    var w14=document.createElement('td');
+                    w14.innerHTML=data[i].uploaddate;
+                    var w16=document.createElement('td');
+                    var w15=document.createElement('button');
+                    w15.id="w"+i;
+                    arr[m++]=i;
+                    w15.type="button";
+                    w15.className="btn btn-warning";
+                    w15.style.fontSize="5px";
+                    w15.innerHTML="详情";
+                    w1.appendChild(w11);
+                    w1.appendChild(w12);
+                    w1.appendChild(w13);
+                    w1.appendChild(w14);
+                    w1.appendChild(w16);
+                    w16.appendChild(w15);
+                    num+=parseInt(data[i].classtime);
+                    document.getElementById('qtgl').appendChild(w1);
+
+                }
+                document.getElementById('classtime').innerHTML=num;
+                document.getElementById('num').innerHTML=data.length;
+
+                for(var j=0;j<m;j++) {
+                    var b='#w'+j;
+                    // var b=arr[j]
+                    $("#qtgl").on('click',b, function () {
+                        // alert($(this).attr("id"))
+                        //  alert($(this).attr("id"));
+                        bbb($(this).attr("id"))
+                        // alert($(this).attr("id"))
+                    });
+                }
+
+            }
+        })
+    }
+    function bbb(i) {
+        //  alert(i)
+        var k=i.substr(1,2);
+        var main5data=JSON.parse(localStorage.getItem("main5data"));
+        console.log(main5data)
+        var j={};
+        j.oid=localStorage.getItem("oid");
+        j.oid=1;
+        j.fid=main5data[k].fid;
+        j.sid=main5data[k].sid;
+        var da=JSON.stringify(j);
+        $.ajax({
+            type: "POST",
+            url: "http://139.9.115.22:8080/organization/showstudent",
+            data:da,
+            dataType: "json",
+            contentType:"application/json; charset=UTF-8",
+            success: function(data){
+                localStorage.setItem("qwer",JSON.stringify(data));
+                // console.log(data);
+                // console.log(JSON.parse(localStorage.getItem("qwer")));
+                var url = 'main52' + '?id=' + k;
+                window.open(url);
+            }
+        })
+    }
+    $('#tjqt').click(function () {
+        window.location.href="main51"
+    })
+</script>
+</body>
+</html>

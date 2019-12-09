@@ -1,0 +1,214 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="http://cdn.bootcss.com/bootstrap/3.3.0/js/bootstrap.min.js"></script>
+    <link rel="stylesheet" href="http://cdn.bootcss.com/bootstrap/3.3.0/css/bootstrap.min.css">
+    <script src="http://libs.baidu.com/bootstrap/3.0.3/js/bootstrap.min.js"></script>
+    <link href="http://libs.baidu.com/bootstrap/3.0.3/css/bootstrap.min.css" rel="stylesheet" />
+    <script src="../css/abouta.css"></script>
+    <script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+    <link href="../css/body.css" rel="stylesheet" />
+
+
+    <style>
+        body {  padding-top: 90px; padding-bottom: 90px;background-color:#F9F9F9;}
+        .lie{
+                 border:none;
+                 font-size: medium;
+                 margin-top: 8px;
+                 width: 100%;
+            background-color: white;
+
+             }
+        a:link,a:visited{color:black;text-decoration:none}
+
+    </style>
+</head>
+<body>
+<nav class="navbar navbar-inverse navbar-fixed-top " style="background-color: #000000 ">
+    <div class="container " >
+        <!--        <div class="collapse navbar-collapse " >-->
+        <!--            <p style="color: white">返回我的导师</p>-->
+        <!--        </div>-->
+        <div class="collapse navbar-collapse text-center" id="navbar" >
+            <img src="../img/logo.png"  style="width:90px;margin-left: auto;margin-right: auto;margin-top: 20px;margin-bottom: 22px;float: none;"/>
+        </div>
+    </div>
+</nav>
+<div  style="width: 80%;margin-left:15%;margin-right: 15%;float: none">
+    <div style="width:200px;float: left">
+        <div style="background-color: #FFF7EA;height: 300px;margin-top: 80px;width:100%;" class="text-center">
+            <img src="../img/main.png" class="img-circle" style="width: 100px;height: 100px;margin-top: 80px">
+            <br>
+            <h4><b>塞尔金钢琴学院</b></h4>
+            <button type="button" class="btn btn-warning" style="width:125px;margin-top: 12px;">修改机构信息</button><br>
+        </div>
+        <div style="background-color: white;border:solid white 1px; height: 300px;width:100%;" class="text-center">
+            <button class="lie" style="margin-top: 18px;"><img src="../img/a.png" width="30px"/><a href="main1" >课程进度</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/q.png" width="20px;" style="margin-right: 10px;"/><a href="main2">课程管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/w1.png" width="20px" style="margin-right: 10px;"/><a href="main3" style="color: #E8BD5F">预约课程</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/e.png" width="20px" style="margin-right: 10px;"/><a href="main4">导师管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/r.png" width="20px" style="margin-right: 10px;"/><a href="main5">琴童管理</a></button>
+            <button class="lie" style="margin-top: 18px;"><img src="../img/t.png" width="20px" style="margin-right: 10px;"/><a href="main6">老师进度</a></button>
+        </div>
+    </div>
+    <div style="background-color: white;margin-top: 80px;height: 140px;width:68%;float:left;margin-left: 20px" class="">
+        <div style="height: 165px;background-color: #999999"></div>
+        <br><br>
+        <div class="text-right">
+            <button id="sub" type="button" class="btn btn-warning text-left" >预约课程</button><br>
+        </div>
+        <div>
+            <p style="text-align: left">已预约课程</p>
+            <div class="text-center" style="border-top: solid #E8BD5F 1px;background-color: white;">
+                <table class="table">
+                    <thead>
+<!--                    <tr >-->
+<!--                        <th class="text-center">时间</th>-->
+<!--                        <th class="text-center">导师</th>-->
+<!--                        <th class="text-center">处理状态</th>-->
+<!--                        <th class="text-center">&#45;&#45;</th>-->
+<!--                    </tr>-->
+                    </thead>
+                    <tbody id="noover">
+
+                    </tbody>
+                </table>
+            </div>
+            <div style="margin-top: 13px;">
+                <p style="text-align: left">已结束课程</p>
+            <div style="border-top: solid #E8BD5F 1px;background-color: white;height: 170px">
+                <table class="text-center table">
+<!--                    <thead>-->
+<!--                    <tr >-->
+<!--                        <th class="text-center" style="border: none"><h5 id="x1"></h5></th>-->
+<!--                        <th class="text-center" style="border: none"><h5 id="x2"></h5></th>-->
+<!--                        <th class="text-center" style="border: none"    ><h5 id="x5"></h5></th>-->
+
+<!--                    </tr>-->
+<!--                    </thead>-->
+                    <tbody id="over">
+<!--                    <tr class="active">-->
+<!--                        <td>2019.10.21&nbsp;11:29</td>-->
+<!--                        <td>蔡男</td>-->
+<!--                        <td><button type="button" class="btn btn-warning" style="font-size: 5px;">详情</button></td>-->
+<!--                    </tr>-->
+<!--                    <tr class="active">-->
+<!--                        <td>2019.10.21&nbsp;11:29</td>-->
+<!--                        <td>蔡男</td>-->
+<!--                        <td><button type="button" class="btn btn-warning" style="font-size: 5px;">详情</button></td>-->
+<!--                    </tr>-->
+                    </tbody>
+                </table>
+            </div>
+            </div>
+        </div>
+    </div>
+</div>
+<script>
+    $("#sub").click(function () {
+        window.location.href="main3yykc";
+    })
+    var arr=[];
+    var arr2=[];
+    function jump(i) {
+        var url = 'main31y' + '?id=' + i;
+        window.open(url);
+    }
+    window.m31y={};
+    var j={};
+    var q=0,p=0;
+    j.oid=localStorage.getItem("oid");
+    var da=JSON.stringify(j);
+    window.onload=function () {
+        $.ajax({
+            type: "POST",
+            url: "http://139.9.115.22:8080/organization/subscribe",
+            data:da,
+            dataType: "json",
+            contentType:"application/json; charset=UTF-8",
+            success: function(data){
+                if(data===""){window.location.href="main2no"}
+              console.log(data);
+                localStorage.setItem("m31y",JSON.stringify(data));
+                // localStorage.setItem("m31y",JSON.stringify(data))
+                for(var i=0,m=0,n=0;i<data.length;i++) {
+                    if (data[i].complete === "0") {
+                        var w1=document.createElement('tr');
+                        // w1.className="active";
+                        var w11=document.createElement('td');
+                        w11.innerHTML=data[i].sudate+"<br/>"+data[i].sutime;
+                        var w12=document.createElement('td');
+                        w12.innerHTML=data[i].aname;
+                        var w13=document.createElement('td');
+                        w13.innerHTML="未确认";
+                        var w14=document.createElement('td');
+                        var w15=document.createElement('button');
+                        w15.id="w"+i;
+                        w15.className="active";
+                        arr[m++]=i;
+                        w15.type="button";
+                        w15.className="btn btn-warning";
+                        w15.style.fontSize="5px";
+                        w15.zIndex="-1";
+                        w15.position= "absolute";
+                        w15.innerHTML="详情";
+                        // w15.onclick=jump(i);
+                        w1.appendChild(w11);
+                        w1.appendChild(w12);
+                        w1.appendChild(w13);
+                        w1.appendChild(w15);
+                        w1.appendChild(w14);
+                        w14.appendChild(w15);
+
+                        document.getElementById('noover').appendChild(w1);
+                    }
+                    else{
+                        var y1=document.createElement('tr');
+                        // y1.className="active";
+                        var y11=document.createElement('td');
+                        y11.innerHTML=data[i].sudate+"<br/>"+data[i].sutime;
+                        var y12=document.createElement('td');
+                        y12.innerHTML=data[i].aname;
+                        var y15=document.createElement('button');
+                        var y14=document.createElement('td');
+                        y15.id="y"+i;
+                        arr2[n++]=i;
+                        y15.type="button";
+                        y15.className="btn btn-warning";
+                        y15.style.fontSize="5px";
+                        y15.innerHTML="详情";
+                        // y15.onclick=jump(i);
+                        y1.appendChild(y11);
+                        y1.appendChild(y12);
+                        y1.appendChild(y15);
+                        y1.appendChild(y14);
+                        y14.appendChild(y15);
+                        document.getElementById('over').appendChild(y1); }
+                }
+                // alert(arr)
+                for(var j=0;j<m;j++) {
+                    var b='#w'+arr[j];
+                    $("#noover").on('click',b, function () {
+                        // alert($(this).attr("id"))
+                        jump($(this).attr("id"))
+                    });
+                }
+                for(var j=0;j<n;j++) {
+                    var b='#y'+arr2[j];
+                    $("#over").on('click',b, function () {
+                        // alert($(this).attr("id"))
+                        jump($(this).attr("id"))
+                    });
+                }
+            }
+
+        })
+
+    }
+
+</script>
+</body>
+</html>
